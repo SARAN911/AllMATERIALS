@@ -5,6 +5,7 @@ const connectDB = require('./config/db');
 
 const machineRoutes = require('./routes/machineRoutes');
 const layerRoutes  = require('./routes/layerRoutes');
+const dashboardRoutes = require('./routes/dashboardRoutes');
 
 const app = express();
 
@@ -21,6 +22,9 @@ app.use('/api/machines', machineRoutes);
 
 // Layer routes nested under machine: /api/machines/:id/layers
 app.use('/api/machines/:id/layers', layerRoutes);
+
+// Dashboard routes: /api/dashboard
+app.use('/api/dashboard', dashboardRoutes);
 
 // ─── Health Check ─────────────────────────────────────────────────────────────
 app.get('/', (req, res) => {
